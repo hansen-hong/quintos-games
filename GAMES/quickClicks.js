@@ -32,9 +32,19 @@ async function endGame() {
 
 	let avg = sum / speeds.length;
 
+	let fastest = speeds[0];
+	let slowest = speeds[0];
 
+	for (let i = 1; i < speeds.length; i++) {
+		if (speeds[i] < fastest) {
+			fastest = speeds[i];
+		}
+		if (speeds[i] > slowest) {
+			slowest = speeds[i];
+		}
+	}
 
-	await pc.alert("Your average time was: " + avg + "ms\nYour fastest time was: " + fastest + "ms\nYour slowest time was: " + slowest);
+	await pc.alert("Your average time was: " + avg + "ms\nYour fastest time was: " + fastest + "ms\nYour slowest time was: " + slowest + "ms");
 }
 
 function btnClick() {
